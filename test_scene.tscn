@@ -12,26 +12,29 @@ size = Vector2(1192, 20)
 
 [node name="Scene" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(365, 593)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_6adnx")
 
-[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Player"]
 offset_left = -10.0
 offset_top = -15.0
 offset_right = 10.0
 offset_bottom = 15.0
 color = Color(1, 0, 0.298039, 1)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Consumable" type="RigidBody2D" parent="."]
 position = Vector2(428, 591)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Consumable"]
 shape = SubResource("RectangleShape2D_uhqqe")
 
-[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Consumable"]
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
