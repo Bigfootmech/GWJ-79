@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4iwfabosl5ef"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6adnx"]
+[ext_resource type="PackedScene" uid="uid://bfukhmugysyxn" path="res://Entities/player.tscn" id="1_3dogw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhqqe"]
 
@@ -15,18 +15,8 @@ size = Vector2(1192, 20)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_3dogw")]
 position = Vector2(365, 593)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CapsuleShape2D_6adnx")
-
-[node name="ColorRect" type="ColorRect" parent="Player"]
-offset_left = -10.0
-offset_top = -15.0
-offset_right = 10.0
-offset_bottom = 15.0
-color = Color(1, 0, 0.298039, 1)
 
 [node name="Consumable" type="RigidBody2D" parent="."]
 position = Vector2(428, 591)
