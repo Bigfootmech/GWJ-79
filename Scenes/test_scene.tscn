@@ -1,8 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4iwfabosl5ef"]
 
 [ext_resource type="PackedScene" uid="uid://bfukhmugysyxn" path="res://Entities/Player/player.tscn" id="1_3dogw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhqqe"]
+[ext_resource type="PackedScene" uid="uid://de3fnrekxc211" path="res://Entities/Consumables/meat.tscn" id="2_r5l72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6adnx"]
 size = Vector2(20, 648)
@@ -18,17 +17,8 @@ position = Vector2(576, 324)
 [node name="Player" parent="." instance=ExtResource("1_3dogw")]
 position = Vector2(365, 593)
 
-[node name="Consumable" type="RigidBody2D" parent="."]
+[node name="Consumable" parent="." instance=ExtResource("2_r5l72")]
 position = Vector2(428, 591)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Consumable"]
-shape = SubResource("RectangleShape2D_uhqqe")
-
-[node name="ColorRect" type="ColorRect" parent="Consumable"]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-10, 324)
