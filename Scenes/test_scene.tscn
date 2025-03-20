@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4iwfabosl5ef"]
+[gd_scene load_steps=6 format=3 uid="uid://b4iwfabosl5ef"]
 
 [ext_resource type="PackedScene" uid="uid://bfukhmugysyxn" path="res://Entities/Player/player.tscn" id="1_3dogw"]
 [ext_resource type="PackedScene" uid="uid://de3fnrekxc211" path="res://Entities/Consumables/meat.tscn" id="2_r5l72"]
+[ext_resource type="Script" uid="uid://idrjgv4ind5s" path="res://Scenes/accept_dialog.gd" id="3_50ct6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6adnx"]
 size = Vector2(20, 648)
@@ -9,7 +10,7 @@ size = Vector2(20, 648)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia1lp"]
 size = Vector2(1192, 20)
 
-[node name="Scene" type="Node2D"]
+[node name="TestScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -37,3 +38,11 @@ position = Vector2(576, 648)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_ia1lp")
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = "Game Over!"
+dialog_text = "Return to main menu"
+script = ExtResource("3_50ct6")
+
+[connection signal="canceled" from="AcceptDialog" to="AcceptDialog" method="_on_canceled"]
+[connection signal="confirmed" from="AcceptDialog" to="AcceptDialog" method="_on_confirmed"]
