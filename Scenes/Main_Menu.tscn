@@ -62,6 +62,7 @@ size_flags_vertical = 3
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Credits"

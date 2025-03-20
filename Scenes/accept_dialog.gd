@@ -1,10 +1,10 @@
 extends AcceptDialog
 
-var scene_preload = preload("res://Scenes/Main_Menu.tscn")
-
 func _on_confirmed():
-	get_node("/root/TestScene").queue_free()
-	get_tree().get_root().add_child(scene_preload.instantiate())
+	SceneLoader.load_main_menu()
 
 func _on_canceled():
-	get_tree().quit()
+	SceneLoader.exit()
+
+func _on_timer_timeout():
+	popup_centered()
