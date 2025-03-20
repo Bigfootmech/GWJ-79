@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kkshy6xsqyfy"]
 
-[ext_resource type="Theme" uid="uid://b4o1tembluaru" path="res://new_theme.tres" id="1_m625n"]
-[ext_resource type="Script" uid="uid://ca8n7h23mcs5y" path="res://main_menu.gd" id="2_wugcc"]
+[ext_resource type="Theme" uid="uid://b4o1tembluaru" path="res://new_theme.tres" id="1_rmbjf"]
+[ext_resource type="Script" uid="uid://ca8n7h23mcs5y" path="res://Scenes/main_menu.gd" id="2_b7rmo"]
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(0, 187)
@@ -11,8 +11,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_m625n")
-script = ExtResource("2_wugcc")
+theme = ExtResource("1_rmbjf")
+script = ExtResource("2_b7rmo")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
