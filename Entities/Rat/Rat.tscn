@@ -210,7 +210,7 @@ animations = [{
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_adbpb")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -249,4 +249,5 @@ shape = SubResource("CapsuleShape2D_si11r")
 position = Vector2(-3, -16)
 sprite_frames = SubResource("SpriteFrames_ly6dl")
 animation = &"idle"
-frame_progress = 0.892845
+frame = 7
+frame_progress = 1.0
