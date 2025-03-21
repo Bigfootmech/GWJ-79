@@ -60,6 +60,7 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Options" parent="CanvasLayer" instance=ExtResource("5_ak5v8")]
+unique_name_in_owner = true
 visible = false
 
 [connection signal="canceled" from="AcceptDialog" to="AcceptDialog" method="_on_canceled"]

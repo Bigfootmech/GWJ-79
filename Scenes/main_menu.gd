@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	SceneLoader.current_scene = self
+
 func _on_start_button_pressed():
 	SceneLoader.load_test()
 
