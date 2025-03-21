@@ -50,7 +50,27 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HSlider" type="HSlider" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer"]
+layout_mode = 2
+
+[node name="MusicText" type="Label" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer/VBoxContainer"]
+layout_mode = 2
+value = 100.0
+
+[node name="EffectsText" type="Label" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Effects"
+
+[node name="EffectsSlider" type="HSlider" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer/VBoxContainer"]
+layout_mode = 2
+value = 100.0
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="BodyRightMargin" type="MarginContainer" parent="BG/VBoxContainer/BodyBar"]
@@ -65,7 +85,7 @@ layout_mode = 2
 [node name="AcceptLeftMargin" type="MarginContainer" parent="BG/VBoxContainer/AcceptBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
+size_flags_stretch_ratio = 0.2
 
 [node name="AcceptButton" type="Button" parent="BG/VBoxContainer/AcceptBar"]
 unique_name_in_owner = true
@@ -85,9 +105,9 @@ text = "Cancel"
 [node name="AcceptRightMargin" type="MarginContainer" parent="BG/VBoxContainer/AcceptBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
+size_flags_stretch_ratio = 0.2
 
 [node name="ScreenBottomMargin" type="MarginContainer" parent="BG/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
+size_flags_stretch_ratio = 0.15
