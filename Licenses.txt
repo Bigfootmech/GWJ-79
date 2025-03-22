@@ -1,0 +1,13 @@
+A record of the Licenses used so far:
+
+Menu Music:
+yesterbreeze.mp3
+https://opengameart.org/content/rpg-music
+by "Gobusto"
+License: CC BY-SA 3.0 -- Attribution & Share Alike
+
+Level:
+awesomeness.wav
+https://opengameart.org/content/menu-music
+by mrpoly
+License: CC0, Public Domain

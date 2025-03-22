@@ -4,6 +4,7 @@
 /.mono
 /.import
 *.import
+*.tmp
 /bin
 /.vs
 /packages
