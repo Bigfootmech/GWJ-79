@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmcjlpfmb4q6k"]
+
+[ext_resource type="Script" uid="uid://beqqhi8m0t53w" path="res://Globals/ui_sounds_scr.gd" id="1_2nuci"]
+[ext_resource type="AudioStream" uid="uid://ckcns83jxgdw0" path="res://Sounds/Mouse/Click/Chest_Open.ogg" id="1_kyx26"]
+[ext_resource type="AudioStream" uid="uid://csf8lot3guf32" path="res://Sounds/Mouse/Mouseover/Dice_03.ogg" id="2_2nuci"]
+
+[node name="Twazzock" type="Node"]
+script = ExtResource("1_2nuci")
+
+[node name="MouseClickSounds" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("1_kyx26")
+bus = &"UI"
+
+[node name="MouseOverSounds" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_2nuci")
+bus = &"UI"

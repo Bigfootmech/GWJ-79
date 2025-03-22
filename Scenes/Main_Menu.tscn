@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://kkshy6xsqyfy"]
+[gd_scene load_steps=6 format=3 uid="uid://kkshy6xsqyfy"]
 
 [ext_resource type="Theme" uid="uid://b4o1tembluaru" path="res://new_theme.tres" id="1_rmbjf"]
 [ext_resource type="Script" uid="uid://ca8n7h23mcs5y" path="res://Scenes/main_menu.gd" id="2_b7rmo"]
 [ext_resource type="PackedScene" uid="uid://dman77g3ltvqm" path="res://Scenes/Options.tscn" id="3_b7rmo"]
 [ext_resource type="AudioStream" uid="uid://bue7ngogsba7q" path="res://Music/menu/yesterbreeze.mp3" id="4_00u4r"]
+[ext_resource type="PackedScene" uid="uid://cmcjlpfmb4q6k" path="res://Globals/ui_sounds.tscn" id="5_anlgx"]
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(0, 187)
@@ -94,7 +95,13 @@ stream = ExtResource("4_00u4r")
 autoplay = true
 bus = &"Music"
 
+[node name="UI_Sounds" parent="." instance=ExtResource("5_anlgx")]
+
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/OptionsButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/CreditsButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/ExitButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
