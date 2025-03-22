@@ -89,7 +89,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_00u4r")
 autoplay = true
 bus = &"Music"
