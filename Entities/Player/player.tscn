@@ -9,9 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dj127y5u0ccxk" path="res://Entities/Player/Alt_Model/Plant3_Run_full.png" id="5_7a1se"]
 [ext_resource type="Texture2D" uid="uid://dntpl8nagcjnt" path="res://Entities/Player/Alt_Model/Plant3_Walk_full.png" id="6_lub02"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6adnx"]
-radius = 7.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a1se"]
+size = Vector2(12, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7a1se"]
 atlas = ExtResource("2_01a4e")
@@ -330,7 +329,8 @@ animations = [{
 script = ExtResource("1_7a1se")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6adnx")
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_7a1se")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
