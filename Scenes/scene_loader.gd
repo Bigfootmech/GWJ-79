@@ -8,6 +8,9 @@ var options_preload = preload("res://Scenes/Options.tscn")
 var current_scene: Node
 var current_scene_name = "Main_Menu"
 
+func pause_level():
+	current_scene.paused = !current_scene.paused
+
 func load_test():
 	load_scene(test_preload)
 	

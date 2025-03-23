@@ -202,15 +202,16 @@ pattern_0 = SubResource("TileMapPattern_aur7v")
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_aur7v")
 
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Game Over!"
+dialog_text = "Return to main menu"
+script = ExtResource("3_2uqsa")
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ptpgp")
 autoplay = true
 bus = &"Music"
-
-[node name="AcceptDialog" type="AcceptDialog" parent="."]
-title = "Game Over!"
-dialog_text = "Return to main menu"
-script = ExtResource("3_2uqsa")
 
 [node name="Test_Scene_Limits" type="Node2D" parent="."]
 
