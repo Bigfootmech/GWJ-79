@@ -11,3 +11,8 @@ awesomeness.wav
 https://opengameart.org/content/menu-music
 by mrpoly
 License: CC0, Public Domain
+
+Player Model:
+https://opengameart.org/content/pixel-predator-plant-mob-character
+by CraftPix.net 2D Game Assets
+License: OGA-BY 3.0 -- https://static.opengameart.org/OGA-BY-3.0.txt
