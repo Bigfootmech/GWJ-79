@@ -261,6 +261,27 @@ autostart = true
 unique_name_in_owner = true
 visible = false
 
+[node name="Consumable2" parent="." instance=ExtResource("2_r5l72")]
+position = Vector2(428, 591)
+
+[node name="Consumable3" parent="." instance=ExtResource("2_r5l72")]
+position = Vector2(466, 612)
+
+[node name="Consumable4" parent="." instance=ExtResource("2_r5l72")]
+position = Vector2(545, 596)
+
+[node name="Consumable7" parent="." instance=ExtResource("2_r5l72")]
+position = Vector2(598, 600)
+
+[node name="Consumable8" parent="." instance=ExtResource("2_r5l72")]
+position = Vector2(646, 599)
+
+[node name="Consumable9" parent="." instance=ExtResource("2_r5l72")]
+position = Vector2(701, 608)
+
+[node name="Consumable10" parent="." instance=ExtResource("2_r5l72")]
+position = Vector2(769, 616)
+
 [connection signal="canceled" from="AcceptDialog" to="AcceptDialog" method="_on_canceled"]
 [connection signal="confirmed" from="AcceptDialog" to="AcceptDialog" method="_on_confirmed"]
 [connection signal="timeout" from="Timer" to="Rat" method="_on_timer_timeout"]
