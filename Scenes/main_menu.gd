@@ -1,6 +1,6 @@
 extends Control
 
-var scene_preload = preload("res://test_scene.tscn")
+var scene_preload = preload("res://Scenes/test_scene.tscn")
 
 func _on_start_button_pressed():
 	get_node("/root/MainMenu").queue_free()

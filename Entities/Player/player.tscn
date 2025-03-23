@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfukhmugysyxn"]
+
+[ext_resource type="Texture2D" uid="uid://ybhogt8ioogv" path="res://Entities/Player/monster_71.png" id="1_mv1ah"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6adnx"]
+radius = 7.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6adnx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 15.0
+color = Color(1, 0, 0.298039, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mv1ah")
