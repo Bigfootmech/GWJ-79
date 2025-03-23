@@ -55,13 +55,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="StartButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../StartButton")
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
@@ -71,8 +79,11 @@ size_flags_vertical = 3
 text = "Credits"
 
 [node name="ExitButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_previous = NodePath("../OptionsButton")
 text = "Exit"
 
 [node name="SquashLimitBottom" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
@@ -97,11 +108,14 @@ bus = &"Music"
 
 [node name="UI_Sounds" parent="." instance=ExtResource("5_anlgx")]
 
+[connection signal="focus_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_focus_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/OptionsButton" to="." method="_on_focus_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/OptionsButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/CreditsButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="focus_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/ExitButton" to="." method="_on_focus_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/ButtonContainer/ExitButton" to="." method="_on_mouse_over"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
