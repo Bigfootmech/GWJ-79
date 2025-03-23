@@ -272,11 +272,6 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_01ng6")
@@ -349,5 +344,5 @@ texture = ExtResource("1_mv1ah")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_01a4e")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
