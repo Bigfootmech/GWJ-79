@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://kkshy6xsqyfy"]
+
+[ext_resource type="Theme" uid="uid://b4o1tembluaru" path="res://new_theme.tres" id="1_rmbjf"]
+[ext_resource type="Script" uid="uid://ca8n7h23mcs5y" path="res://Scenes/main_menu.gd" id="2_b7rmo"]
+
+[node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(0, 187)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rmbjf")
+script = ExtResource("2_b7rmo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 187)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LimitLeft" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 187)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LimitTop" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.86
+
+[node name="ButtonContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 187)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="SquashLimitBottom" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.56
+
+[node name="LimitRight" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
