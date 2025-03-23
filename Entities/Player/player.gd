@@ -115,4 +115,5 @@ func GameOver():
 	#get_tree().paused = true
 	
 func LevelComplete():
-	SceneLoader.load_next_level()
+	#SceneLoader.load_next_level()
+	GlobUi.Win()

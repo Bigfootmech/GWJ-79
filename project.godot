@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SceneLoader="*res://Scenes/scene_loader.gd"
 Audio="*res://audio.gd"
 UiSounds="*res://Globals/bruh.tscn"
+GlobUi="*res://Globals/GlobUi.tscn"
 
 [global_group]
 
