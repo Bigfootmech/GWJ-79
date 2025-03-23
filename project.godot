@@ -21,6 +21,10 @@ SceneLoader="*res://Scenes/scene_loader.gd"
 Audio="*res://audio.gd"
 UiSounds="*res://Globals/bruh.tscn"
 
+[global_group]
+
+Consumable=""
+
 [input]
 
 ui_accept={

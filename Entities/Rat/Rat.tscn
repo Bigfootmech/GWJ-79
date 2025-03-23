@@ -241,7 +241,7 @@ animations = [{
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_k0ng3"]
 
-[node name="Rat" type="RigidBody2D"]
+[node name="Rat" type="RigidBody2D" groups=["Consumable"]]
 script = ExtResource("1_iisjx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

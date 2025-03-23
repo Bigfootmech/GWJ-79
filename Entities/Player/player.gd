@@ -6,6 +6,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var speed = 7000
 @export var JUMP_VELOCITY = 380.0
 
+var size = 1.0
+
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jump()
@@ -18,6 +20,7 @@ func _physics_process(delta):
 	_set_animation()
 	
 	move_and_slide()
+	_process_collisions()
 	
 func _set_move(delta):
 	var input_direction = Input.get_axis("ui_left", "ui_right")
@@ -74,3 +77,20 @@ func is_attacking() -> bool:
 	
 func is_moving() -> bool:
 	return velocity.x != 0
+
+func _process_collisions():
+	for i in get_slide_collision_count():
+		var collision: KinematicCollision2D = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if(is_attacking() && _collider_is_consumable(collider)):
+			consume(collider)
+		
+func _collider_is_consumable(collider) -> bool:
+	return (collider is Node) && collider.is_in_group("Consumable")
+	
+func consume(collider: Node):
+	collider.queue_free()
+	size += 0.2
+	
+	scale = Vector2(size,size)

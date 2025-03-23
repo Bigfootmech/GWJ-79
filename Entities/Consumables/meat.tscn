@@ -9,7 +9,7 @@ radius = 9.05539
 atlas = ExtResource("1_3vd1a")
 region = Rect2(155, 340, 24, 24)
 
-[node name="Consumable" type="RigidBody2D"]
+[node name="Consumable" type="RigidBody2D" groups=["Consumable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
