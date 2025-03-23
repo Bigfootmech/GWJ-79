@@ -22,6 +22,9 @@ func load_main_menu():
 
 func load_options_menu():
 	load_scene(options_preload)
+	
+func load_next_level():
+	load_test()
 
 func exit():
 	get_tree().quit()

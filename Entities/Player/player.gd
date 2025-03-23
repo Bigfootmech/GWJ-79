@@ -83,6 +83,9 @@ func _process_collisions():
 		var collision: KinematicCollision2D = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
+		if(is_at_end_of_level(collider)):
+			LevelComplete()
+			
 		if(is_out_of_bounds(collider)):
 			GameOver()
 		
@@ -101,9 +104,15 @@ func consume(collider: Node):
 func is_out_of_bounds(collider) -> bool:
 	return (collider is Node) && collider.is_in_group("Level_Bounds")
 	
+func is_at_end_of_level(collider) -> bool:
+	return (collider is Node) && collider.is_in_group("Level_Complete")
+	
+	
 func GameOver():
 	#print("game over!!!")
 	# SceneLoader.pause_level()
 	get_parent().get_child(0).popup_centered()
 	#get_tree().paused = true
 	
+func LevelComplete():
+	SceneLoader.load_next_level()

@@ -25,6 +25,7 @@ UiSounds="*res://Globals/bruh.tscn"
 
 Consumable=""
 Level_Bounds=""
+Level_Complete=""
 
 [input]
 
