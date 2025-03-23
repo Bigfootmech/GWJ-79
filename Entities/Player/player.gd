@@ -55,14 +55,19 @@ func _turn_sprite():
 		%AnimatedSprite2D.flip_h = false
 
 func _set_animation():
-	if(is_attacking()):
-		__select_animation("attack")
-		return
-	if(is_moving()):
-		__select_animation("walk")
-		return
-	
-	__select_animation("idle")
+	if not is_on_floor():
+		if %AnimatedSprite2D.animation != "jump":
+			%AnimatedSprite2D.play("jump")
+	elif is_attacking():
+		if %AnimatedSprite2D.animation != "attack":
+			%AnimatedSprite2D.play("attack")
+	elif is_moving():
+		if %AnimatedSprite2D.animation != "walk":
+			%AnimatedSprite2D.play("walk")
+	else:
+		if %AnimatedSprite2D.animation != "idle":
+			%AnimatedSprite2D.play("idle")
+
 		
 func _on_animated_sprite_2d_animation_finished():
 	__select_animation("idle")
