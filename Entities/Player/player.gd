@@ -35,7 +35,8 @@ func _apply_gravity(delta):
 	
 func jump():
 	if(is_on_floor()): # don't jump in the air
-		%AnimatedSprite2D.play("jump")
+		if(!is_attacking()):
+			%AnimatedSprite2D.play("jump")
 		if(Input.is_action_pressed("ui_down")): # Jump Down
 			position.y += 2
 		else:
@@ -46,7 +47,7 @@ func animation_idle():
 	#%AnimatedSprite2D.animation_finished.disconnect(self.animation_idle)
 			
 func attack():
-	%AnimatedSprite2D.animation = "attack"
+	%AnimatedSprite2D.play("attack")
 	#%AnimatedSprite2D.animation_finished.connect(self.animation_idle)
 	
 	
