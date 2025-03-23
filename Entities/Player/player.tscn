@@ -1,5 +1,6 @@
-[gd_scene load_steps=50 format=3 uid="uid://bfukhmugysyxn"]
+[gd_scene load_steps=51 format=3 uid="uid://bfukhmugysyxn"]
 
+[ext_resource type="Script" uid="uid://dkkdyhnlauxw0" path="res://Entities/Player/player.gd" id="1_7a1se"]
 [ext_resource type="Texture2D" uid="uid://ybhogt8ioogv" path="res://Entities/Player/monster_71.png" id="1_mv1ah"]
 [ext_resource type="Texture2D" uid="uid://7vd1ylqdxuw6" path="res://Entities/Player/Alt_Model/Plant3_Attack_full.png" id="2_01a4e"]
 [ext_resource type="Texture2D" uid="uid://c8qfqdjys23eh" path="res://Entities/Player/Alt_Model/Plant3_Idle_full.png" id="2_3uyv8"]
@@ -326,6 +327,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7a1se")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6adnx")
@@ -343,6 +345,7 @@ visible = false
 texture = ExtResource("1_mv1ah")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_01a4e")
 animation = &"idle"
 autoplay = "idle"
