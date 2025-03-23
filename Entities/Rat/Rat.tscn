@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://bg8k343j2j327"]
+[gd_scene load_steps=37 format=3 uid="uid://bg8k343j2j327"]
 
 [ext_resource type="Texture2D" uid="uid://2hyu1v4l385k" path="res://Entities/Rat/FrameSheets/48x48Rat_Attack.png" id="1_7dxdv"]
+[ext_resource type="Script" uid="uid://c2ytusstygi4k" path="res://Entities/Rat/rat.gd" id="1_iisjx"]
 [ext_resource type="Texture2D" uid="uid://cwu7vp6wh2oqg" path="res://Entities/Rat/FrameSheets/48x48Rat_Death.png" id="2_iisjx"]
 [ext_resource type="Texture2D" uid="uid://dn3psytxdupmu" path="res://Entities/Rat/FrameSheets/48x48Rat_Idle.png" id="3_k0ng3"]
 [ext_resource type="Texture2D" uid="uid://cdxj7khhapjel" path="res://Entities/Rat/FrameSheets/48x48Rat_Run.png" id="4_vyjp3"]
@@ -173,7 +174,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r3xnd")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -210,7 +211,7 @@ animations = [{
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_adbpb")
 }],
-"loop": false,
+"loop": true,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -238,7 +239,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_k0ng3"]
+
 [node name="Rat" type="RigidBody2D"]
+script = ExtResource("1_iisjx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -249,5 +253,7 @@ shape = SubResource("CapsuleShape2D_si11r")
 position = Vector2(-3, -16)
 sprite_frames = SubResource("SpriteFrames_ly6dl")
 animation = &"idle"
-frame = 7
-frame_progress = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamOggVorbis_k0ng3")
+bus = &"Sound Effects"
