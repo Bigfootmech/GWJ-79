@@ -5,7 +5,7 @@ func _ready():
 
 func _on_start_button_pressed():
 	UiSounds.mouse_click()
-	SceneLoader.load_test()
+	SceneLoader.load_lvl1()
 
 func _on_options_button_pressed():
 	UiSounds.mouse_click()

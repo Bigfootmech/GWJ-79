@@ -1,6 +1,7 @@
 extends Node
 
 var test_preload = preload("res://Scenes/test_scene.tscn")
+var lvl1_preload = preload("res://Scenes/Level_1.tscn")
 var menu_preload = preload("res://Scenes/Main_Menu.tscn")
 var options_preload = preload("res://Scenes/Options.tscn")
 
@@ -9,6 +10,9 @@ var current_scene_name = "Main_Menu"
 
 func load_test():
 	load_scene(test_preload)
+	
+func load_lvl1():
+	load_scene(lvl1_preload)
 
 func load_main_menu():
 	load_scene(menu_preload)
