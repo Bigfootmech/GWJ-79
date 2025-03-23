@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://kkshy6xsqyfy"]
+[gd_scene load_steps=5 format=3 uid="uid://kkshy6xsqyfy"]
 
 [ext_resource type="Theme" uid="uid://b4o1tembluaru" path="res://new_theme.tres" id="1_rmbjf"]
 [ext_resource type="Script" uid="uid://ca8n7h23mcs5y" path="res://Scenes/main_menu.gd" id="2_b7rmo"]
+[ext_resource type="PackedScene" uid="uid://dman77g3ltvqm" path="res://Scenes/Options.tscn" id="3_b7rmo"]
+[ext_resource type="AudioStream" uid="uid://bue7ngogsba7q" path="res://Music/menu/yesterbreeze.mp3" id="4_00u4r"]
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(0, 187)
@@ -62,6 +64,7 @@ size_flags_vertical = 3
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/ButtonContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Credits"
@@ -80,6 +83,16 @@ size_flags_stretch_ratio = 0.56
 [node name="LimitRight" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Options" parent="." instance=ExtResource("3_b7rmo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_00u4r")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]

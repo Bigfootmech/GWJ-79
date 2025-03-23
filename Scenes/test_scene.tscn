@@ -1,15 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4iwfabosl5ef"]
+[gd_scene load_steps=10 format=3 uid="uid://b4iwfabosl5ef"]
 
 [ext_resource type="PackedScene" uid="uid://bfukhmugysyxn" path="res://Entities/Player/player.tscn" id="1_3dogw"]
+[ext_resource type="Script" uid="uid://bm3mmemhpbgga" path="res://Scenes/test_scene.gd" id="1_x033f"]
 [ext_resource type="PackedScene" uid="uid://de3fnrekxc211" path="res://Entities/Consumables/meat.tscn" id="2_r5l72"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6adnx"]
-size = Vector2(20, 648)
+[ext_resource type="AudioStream" uid="uid://c8iyai7u5irrr" path="res://Music/ingame/awesomeness.wav" id="2_rdbpf"]
+[ext_resource type="Script" uid="uid://idrjgv4ind5s" path="res://Scenes/accept_dialog.gd" id="3_50ct6"]
+[ext_resource type="PackedScene" uid="uid://bg8k343j2j327" path="res://Entities/Rat/Rat.tscn" id="4_hb2xm"]
+[ext_resource type="PackedScene" uid="uid://dman77g3ltvqm" path="res://Scenes/Options.tscn" id="5_ak5v8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia1lp"]
 size = Vector2(1192, 20)
 
-[node name="Scene" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6adnx"]
+size = Vector2(20, 648)
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_x033f")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rdbpf")
+autoplay = true
+bus = &"Music"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = "Game Over!"
+dialog_text = "Return to main menu"
+script = ExtResource("3_50ct6")
+
+[node name="Test_Scene_Limits" type="Node2D" parent="."]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Test_Scene_Limits"]
+position = Vector2(576, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_Scene_Limits/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_ia1lp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Test_Scene_Limits"]
+position = Vector2(1162, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_Scene_Limits/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_6adnx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Test_Scene_Limits"]
+position = Vector2(-10, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_Scene_Limits/StaticBody2D"]
+shape = SubResource("RectangleShape2D_6adnx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -20,20 +56,19 @@ position = Vector2(365, 593)
 [node name="Consumable" parent="." instance=ExtResource("2_r5l72")]
 position = Vector2(428, 591)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-10, 324)
+[node name="Rat" parent="." instance=ExtResource("4_hb2xm")]
+position = Vector2(263, 593)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_6adnx")
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1162, 324)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("RectangleShape2D_6adnx")
+[node name="Options" parent="CanvasLayer" instance=ExtResource("5_ak5v8")]
+unique_name_in_owner = true
+visible = false
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(576, 648)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-shape = SubResource("RectangleShape2D_ia1lp")
+[connection signal="canceled" from="AcceptDialog" to="AcceptDialog" method="_on_canceled"]
+[connection signal="confirmed" from="AcceptDialog" to="AcceptDialog" method="_on_confirmed"]
+[connection signal="timeout" from="Timer" to="Rat" method="_on_timer_timeout"]
