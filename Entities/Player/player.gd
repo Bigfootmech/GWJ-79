@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
-@export var speed = 400
+# Get Gravity from project settings
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func get_input():
-	var input_direction = Input.get_axis("ui_left", "ui_right")
-	velocity.x = input_direction * speed
-	_turn_sprite(velocity.x)
+@export var speed = 7000
+@export var JUMP_VELOCITY = -380.0
 
 func _physics_process(delta):
-	get_input()
-	move_and_slide()
+	var input_direction = Input.get_axis("ui_left", "ui_right")
+	velocity.x = input_direction * speed * delta
+	_turn_sprite(velocity.x)
+	
+	if !is_on_floor():
+		velocity.y += gravity * delta
 
+	move_and_slide()
+	
 func _turn_sprite(dir):
 	if(!%AnimatedSprite2D.flip_h && dir >0):
 		%AnimatedSprite2D.flip_h = true
