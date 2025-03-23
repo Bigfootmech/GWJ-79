@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv7e3pgunwso6"]
+
+[ext_resource type="Script" uid="uid://b23767tk74vjj" path="res://Globals/glob_ui.gd" id="1_7lhye"]
+[ext_resource type="PackedScene" uid="uid://dman77g3ltvqm" path="res://Scenes/Options.tscn" id="2_ks3t8"]
+
+[node name="GlobUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7lhye")
+
+[node name="Options" parent="." instance=ExtResource("2_ks3t8")]
+visible = false
+layout_mode = 1
+
+[node name="WinDialog" type="AcceptDialog" parent="."]
+title = "Victory!"
+dialog_text = "Thank you for playing our game!
+
+Sorry we couldn't get more done in time.
+But we hope you found it interesting nonetheless :)."
+
+[connection signal="canceled" from="WinDialog" to="." method="_on_win_dialog_canceled"]
+[connection signal="confirmed" from="WinDialog" to="." method="_on_win_dialog_confirmed"]
