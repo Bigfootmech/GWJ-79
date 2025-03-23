@@ -242,9 +242,6 @@ tile_set = SubResource("TileSet_yglu3")
 tile_map_data = PackedByteArray("AAAGACAAAAAAAAYAAAAGACEAAAAAAAcAAAAGACIAAAAAAAgAAAAHACAAAAABAAYAAAAHACEAAAABAAcAAAAHACIAAAABAAgAAAAIACAAAAACAAYAAAAIACEAAAACAAcAAAAIACIAAAACAAgAAAA=")
 tile_set = SubResource("TileSet_yglu3")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-
 [node name="Player" parent="." instance=ExtResource("1_3dogw")]
 position = Vector2(365, 593)
 
