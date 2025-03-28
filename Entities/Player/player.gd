@@ -55,14 +55,19 @@ func _turn_sprite():
 		%AnimatedSprite2D.flip_h = false
 
 func _set_animation():
-	if(is_attacking()):
-		__select_animation("attack")
-		return
-	if(is_moving()):
-		__select_animation("walk")
-		return
-	
-	__select_animation("idle")
+	if not is_on_floor():
+		if %AnimatedSprite2D.animation != "jump":
+			%AnimatedSprite2D.play("jump")
+	elif is_attacking():
+		if %AnimatedSprite2D.animation != "attack":
+			%AnimatedSprite2D.play("attack")
+	elif is_moving():
+		if %AnimatedSprite2D.animation != "walk":
+			%AnimatedSprite2D.play("walk")
+	else:
+		if %AnimatedSprite2D.animation != "idle":
+			%AnimatedSprite2D.play("idle")
+
 		
 func _on_animated_sprite_2d_animation_finished():
 	__select_animation("idle")
@@ -83,6 +88,12 @@ func _process_collisions():
 		var collision: KinematicCollision2D = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
+		if(is_at_end_of_level(collider)):
+			LevelComplete()
+			
+		if(is_out_of_bounds(collider)):
+			GameOver()
+		
 		if(is_attacking() && _collider_is_consumable(collider)):
 			consume(collider)
 		
@@ -94,3 +105,20 @@ func consume(collider: Node):
 	size += 0.2
 	
 	scale = Vector2(size,size)
+
+func is_out_of_bounds(collider) -> bool:
+	return (collider is Node) && collider.is_in_group("Level_Bounds")
+	
+func is_at_end_of_level(collider) -> bool:
+	return (collider is Node) && collider.is_in_group("Level_Complete")
+	
+	
+func GameOver():
+	#print("game over!!!")
+	# SceneLoader.pause_level()
+	get_parent().get_child(0).popup_centered()
+	#get_tree().paused = true
+	
+func LevelComplete():
+	#SceneLoader.load_next_level()
+	GlobUi.Win()

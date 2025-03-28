@@ -56,8 +56,9 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="MasterText" type="Label" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
-text = "Music"
+text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="BG/VBoxContainer/BodyBar/BodyMain/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
