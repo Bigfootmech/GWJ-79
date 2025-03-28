@@ -1,5 +1,7 @@
 extends Control
 
+signal return_focus
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		_on_cancel_button_pressed()
@@ -10,6 +12,10 @@ func _ready():
 	%MusicSlider.value = Audio.music_volume
 	%EffectsSlider.value = Audio.sounds_volume
 	%UISlider.value = Audio.ui_volume
+	release_focus()
+	
+func focus():
+	%AcceptButton.grab_focus()
 
 func _on_accept_button_pressed():
 	UiSounds.mouse_click()
@@ -19,11 +25,15 @@ func _on_accept_button_pressed():
 	Audio.ui_volume = %UISlider.value
 	Audio.reset_bus_volumes()
 	hide()
+	release_focus()
+	return_focus.emit()
 
 func _on_cancel_button_pressed():
 	UiSounds.mouse_click()
 	Audio.reset_bus_volumes()
 	hide()
+	release_focus()
+	return_focus.emit()
 
 func _on_mouse_over():
 	UiSounds.mouse_over()
